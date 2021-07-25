@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-import Cars from './Cars';
+import CarRace from './components/CarRace';
 
 function App() {
   return (
-    <Cars />
+      <CarRace />
   );
 }
 
