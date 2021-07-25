@@ -1,5 +1,6 @@
 import React from 'react';
 import Cars from '../Cars';
+import App from '../App.js';
 import MyContext from '../contextAPI/contextAPI';
 
 class CarRace extends React.Component {
@@ -27,9 +28,13 @@ constructor () {
       yellowCar: this.state.yellow,
       moveCar: this.moveCar,
     }
+
+    const { children } = this.props;
     return (
       <MyContext.Provider value={ myContextValue }>
-      <Cars />
+      {/* <Cars /> */}
+      {/* <App /> */}
+      { children }
       </MyContext.Provider>
     );
   }
