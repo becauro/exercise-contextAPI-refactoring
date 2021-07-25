@@ -13,19 +13,17 @@ import MyContext from './contextAPI/contextAPI';
 class Cars extends React.Component {
 
   render() {
+    const { blueCar, redCar, yellowCar, moveCar } = this.context;
     return (
-      <MyContext.Consumer >
-        {/* {({ redCar, blueCar , yellowCar, moveCar }) => ( */}
-        { value => (
           <div>
             <div>
               <img
-                className={value.redCar ? 'car-right' : 'car-left'}
+                className={redCar ? 'car-right' : 'car-left'}
                 src={carRed}
                 alt="red car"
               />
               <button
-                onClick={() => value.moveCar('red', !value.redCar)}
+                onClick={() => moveCar('red', !redCar)}
                 type="button"
               >
                 Move
@@ -33,12 +31,12 @@ class Cars extends React.Component {
             </div>
             <div>
               <img
-                className={value.blueCar ? 'car-right' : 'car-left'}
+                className={blueCar ? 'car-right' : 'car-left'}
                 src={carBlue}
                 alt="blue car"
               />
               <button
-                onClick={() => value.moveCar('blue', !value.blueCar)}
+                onClick={() => moveCar('blue', !blueCar)}
                 type="button"
               >
                 Move
@@ -46,20 +44,18 @@ class Cars extends React.Component {
             </div>
             <div>
               <img
-                className={value.yellowCar ? 'car-right' : 'car-left'}
+                className={yellowCar ? 'car-right' : 'car-left'}
                 src={carYellow}
                 alt="yellow car"
               />
               <button
-                onClick={() => value.moveCar('yellow', !value.yellowCar)}
+                onClick={() => moveCar('yellow', !yellowCar)}
                 type="button"
               >
                 Move
               </button>
             </div>
           </div>
-        )}
-      </MyContext.Consumer>
     );
   }
 }
@@ -79,4 +75,6 @@ class Cars extends React.Component {
 // const mapDispatchToProps = { moveCar };
 
 // export default connect(mapStateToProps, mapDispatchToProps)(Cars);
+
+Cars.contextType = MyContext;
 export default Cars;
